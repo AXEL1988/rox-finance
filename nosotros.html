@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -19,8 +21,12 @@
                     <li><a href="/servicios.html">Servicios</a></li>
                     <li><a href="/nosotros.html">Nosotros</a></li>
                     <li><a href="/contacto.html">Contacto</a></li>
+                    <li class="mobile-only"><a href="/contacto.html" class="btn btn-primary" style="margin-top: 1rem;">Cita Estratégica</a></li>
                 </ul>
-                <a href="/contacto.html" class="btn btn-primary" style="padding: 0.6rem 1.5rem;">Cita Estratégica</a>
+                <div class="menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <a href="/contacto.html" class="btn btn-primary desktop-only" style="padding: 0.6rem 1.5rem;">Cita Estratégica</a>
             </nav>
         </div>
     </header>
@@ -37,35 +43,208 @@
                     <div>
                         <h3 style="margin-bottom: 1.5rem;">Estrategia Internacional</h3>
                         <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                            ROX Seguros e Inversiones nace con la misión de brindar a nuestros clientes las herramientas necesarias para proteger y crecer su patrimonio en mercados internacionales.
+                            ROX Seguros e Inversiones nace con la misión de brindar a nuestros clientes las herramientas
+                            necesarias para proteger y crecer su patrimonio en mercados internacionales.
                         </p>
                         <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                            Especializados en la estructuración de inversiones en dólares, trabajamos bajo un tono profesional, estratégico y con una visión global, evitando riesgos innecesarios y enfocándonos en la preservación de capital a largo plazo.
+                            Especializados en la estructuración de inversiones en dólares, trabajamos bajo un tono
+                            profesional, estratégico y con una visión global, evitando riesgos innecesarios y
+                            enfocándonos en la preservación de capital a largo plazo.
                         </p>
                     </div>
                     <div>
-                        <img src="/assets/images/service-planning.png" alt="Estrategia" style="width: 100%; border-radius: 8px; border: 1px solid var(--gold-metallic);">
+                        <img src="/assets/images/service-planning.png" alt="Estrategia"
+                            style="width: 100%; border-radius: 8px; border: 1px solid var(--gold-metallic);">
+                    </div>
+                </div>
+
+                <!-- Section 1: Stats Banner -->
+                <div class="stats-banner reveal reveal-up">
+                    <div class="stat-item gold">
+                        <h2>+500</h2>
+                        <p>Clientes Corporativos</p>
+                        <span style="font-size: 0.8rem; opacity: 0.8;">Asesoría en Protección y Crecimiento</span>
+                    </div>
+                    <div class="stat-item dark">
+                        <h2>+$1000M</h2>
+                        <p>Bajo Consultoría</p>
+                        <span style="font-size: 0.8rem; opacity: 0.8;">Estructuras Patrimoniales Globales</span>
+                    </div>
+                    <div class="stat-item green">
+                        <h2>+280</h2>
+                        <p>Familias Protegidas</p>
+                        <span style="font-size: 0.8rem; opacity: 0.8;">Estrategias de Seguridad a Largo Plazo</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section style="background: var(--secondary-blue);">
+        <!-- Section 1 cont: Timeline -->
+        <section class="timeline-container reveal reveal-up">
             <div class="container">
-                <div class="grid">
-                    <div style="text-align: center;">
-                        <h2 style="font-size: 3rem;">10+</h2>
-                        <p style="color: var(--gold-metallic);">Años de Experiencia</p>
+                <h2 style="margin-bottom: 1rem;">Nuestra historia</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--text-muted);">
+                    Con cada paso, hemos construido una trayectoria marcada por hitos que reflejan nuestro compromiso de
+                    brindar confianza a través de un servicio de calidad y de excelencia.
+                </p>
+
+                <div class="timeline-slider">
+                    <button class="timeline-nav-btn prev" aria-label="Anterior"><i
+                            class="fas fa-chevron-left"></i></button>
+                    <div class="timeline-track" id="timeline-track">
+                        <!-- 1994 -->
+                        <div class="timeline-item">
+                            <span class="timeline-year">1994</span>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Fundación</h3>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Establecimiento de las bases
+                                    estratégicas en consultoría financiera internacional.</p>
+                            </div>
+                        </div>
+                        <!-- 1999 -->
+                        <div class="timeline-item">
+                            <span class="timeline-year">1999</span>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Diversificación</h3>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Apertura de carteras de
+                                    inversión
+                                    especializadas en mercados globales de USD.</p>
+                            </div>
+                        </div>
+                        <!-- 2004 -->
+                        <div class="timeline-item">
+                            <span class="timeline-year">2004</span>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Consolidación</h3>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Liderazgo regional en la
+                                    gestión de fideicomisos y protección patrimonial.</p>
+                            </div>
+                        </div>
+                        <!-- 2009 -->
+                        <div class="timeline-item">
+                            <span class="timeline-year">2009</span>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Visión Digital</h3>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Tecnología de punta para el
+                                    monitoreo de activos y análisis de riesgos globales.</p>
+                            </div>
+                        </div>
+                        <!-- 2014 -->
+                        <div class="timeline-item">
+                            <span class="timeline-year">2014</span>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Escala Global</h3>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Alianzas estratégicas con las
+                                    principales instituciones financieras internacionales.</p>
+                            </div>
+                        </div>
+                        <!-- 2019 -->
+                        <div class="timeline-item">
+                            <span class="timeline-year">2019</span>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Preservación</h3>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Enfoque crítico en la
+                                    resiliencia del capital ante volatilidades de mercado.</p>
+                            </div>
+                        </div>
+                        <!-- 2025 -->
+                        <div class="timeline-item">
+                            <span class="timeline-year">2025</span>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Horizonte 2025</h3>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">Definiendo el futuro de la
+                                    planificación estratégica de alto nivel.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div style="text-align: center;">
-                        <h2 style="font-size: 3rem;">500+</h2>
-                        <p style="color: var(--gold-metallic);">Familias Protegidas</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <h2 style="font-size: 3rem;">$50M+</h2>
-                        <p style="color: var(--gold-metallic);">Activos Bajo Asesoría</p>
+                    <button class="timeline-nav-btn next" aria-label="Siguiente"><i
+                            class="fas fa-chevron-right"></i></button>
+
+                    <div class="timeline-dots" id="timeline-dots">
+                        <!-- Dots will be generated via JS or kept static if we want -->
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Purpose & Values -->
+        <section style="padding: 0;">
+            <div class="split-purpose reveal reveal-left">
+                <div class="split-image" style="background-image: url('/assets/images/rox_purpose_team.png');">
+                </div>
+                <div class="split-text">
+                    <h2 style="margin-bottom: 1.5rem;">Estrategia con propósito</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        No solo gestionamos activos; diseñamos arquitecturas financieras destinadas a blindar el
+                        patrimonio familiar y empresarial frente a entornos complejos.
+                    </p>
+                    <p style="color: var(--text-muted);">
+                        Nuestra metodología combina el análisis de riesgos geopolíticos con soluciones de inversión en
+                        monedas fuertes, garantizando una transferencia generacional eficiente y segura.
+                    </p>
+                </div>
+            </div>
+
+            <div class="split-purpose reverse reveal reveal-right">
+                <div class="split-image" style="background-image: url('/assets/images/rox_leadership_banner.png');">
+                </div>
+                <div class="split-text">
+                    <h2 style="margin-bottom: 1.5rem;">Valores Institucionales</h2>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--gold-metallic); margin-bottom: 0.5rem;">Excelencia Operativa</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">El rigor en cada proceso asegura la
+                            precisión de nuestras recomendaciones estratégicas.</p>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--gold-metallic); margin-bottom: 0.5rem;">Transparencia Radical</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">La ética y el cumplimiento normativo
+                            internacional son los pilares de cada una de nuestras gestiones.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--gold-metallic); margin-bottom: 0.5rem;">Visión de Futuro</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Anticipamos tendencias de mercado para
+                            posicionar a nuestros clientes en una ventaja competitiva constante.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Legacy & Leadership -->
+        <section class="reveal reveal-up">
+            <div class="container" style="text-align: center;">
+                <h2 style="margin-bottom: 1.5rem;">Legado Internacional</h2>
+                <h4 style="color: var(--gold-metallic); margin-bottom: 1.5rem;">La preservación del bienestar financiero
+                    intergeneracional es nuestra especialidad técnica.</h4>
+                <p style="max-width: 900px; margin: 0 auto; color: var(--text-muted);">
+                    Actuamos como consultores estratégicos de confianza, integrando soluciones de planeación fiscal,
+                    seguridad en moneda extranjera y protección de activos bajo los más altos estándares globales.
+                    Su tranquilidad patrimonial es el resultado de nuestra rigurosa ejecución.
+                </p>
+            </div>
+        </section>
+
+        <section class="leader-banner reveal reveal-up"
+            style="background-image: url('/assets/images/rox_leadership_banner.png');">
+            <div class="container">
+                <h2 style="margin-bottom: 1.5rem;">Nuestro liderazgo</h2>
+                <p style="margin-bottom: 2rem; max-width: 700px; margin-inline: auto;">Conozca a los actores que día a
+                    día trabajan, adquiriendo nuevos conocimientos e implementando las mejores herramientas.</p>
+                <a href="/contacto.html" class="btn btn-primary"
+                    style="background: var(--gold-metallic); color: var(--primary-blue);">Conoce más</a>
             </div>
         </section>
     </main>
@@ -97,7 +276,7 @@
                     <ul style="margin-top: 1rem; color: var(--text-muted);">
                         <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.5rem;">
                             <i class="fas fa-map-marker-alt" style="color: var(--gold-metallic); margin-top: 5px;"></i>
-                            <span>Edificio Financial Hub, Piso 12<br>Quito - Ecuador</span>
+                            <span>Edificio Financial Hub<br>Quito - Ecuador</span>
                         </li>
                     </ul>
                 </div>
@@ -127,4 +306,5 @@
 
     <script type="module" src="/main.js"></script>
 </body>
+
 </html>

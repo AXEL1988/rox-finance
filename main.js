@@ -78,4 +78,74 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => {
         revealObserver.observe(el);
     });
+
+    // Timeline Slider Logic
+    const track = document.getElementById('timeline-track');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.timeline-nav-btn.prev');
+    const nextBtn = document.querySelector('.timeline-nav-btn.next');
+
+    if (track && dots.length > 0) {
+        const updateDots = () => {
+            const scrollLeft = track.scrollLeft;
+            const itemWidth = track.querySelector('.timeline-item').offsetWidth;
+            const index = Math.round(scrollLeft / itemWidth);
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        };
+
+        track.addEventListener('scroll', updateDots);
+
+        nextBtn.addEventListener('click', () => {
+            const itemWidth = track.querySelector('.timeline-item').offsetWidth + 32; // width + gap
+            track.scrollBy({ left: itemWidth, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            const itemWidth = track.querySelector('.timeline-item').offsetWidth + 32;
+            track.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                const itemWidth = track.querySelector('.timeline-item').offsetWidth + 32;
+                track.scrollTo({ left: i * itemWidth, behavior: 'smooth' });
+            });
+        });
+    }
+
+    // Mobile Menu Toggle Logic
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const menuIcon = menuToggle?.querySelector('i');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Toggle icon between bars and times
+            if (menuIcon) {
+                if (navLinks.classList.contains('active')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            }
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+        });
+    }
 });

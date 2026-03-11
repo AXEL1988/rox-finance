@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -19,17 +21,23 @@
                     <li><a href="/servicios.html">Servicios</a></li>
                     <li><a href="/nosotros.html">Nosotros</a></li>
                     <li><a href="/contacto.html">Contacto</a></li>
+                    <li class="mobile-only"><a href="/contacto.html" class="btn btn-primary" style="margin-top: 1rem;">Cita Estratégica</a></li>
                 </ul>
-                <a href="/contacto.html" class="btn btn-primary" style="padding: 0.6rem 1.5rem;">Cita Estratégica</a>
+                <div class="menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <a href="/contacto.html" class="btn btn-primary desktop-only" style="padding: 0.6rem 1.5rem;">Cita Estratégica</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="subpage-hero" style="height: 40vh; background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('/assets/images/service-planning.png'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 80px;">
+        <section class="subpage-hero"
+            style="height: 40vh; background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('/assets/images/service-planning.png'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 80px;">
             <div class="container reveal reveal-up">
                 <h1>Estrategias de Protección y Crecimiento</h1>
-                <p style="color: var(--text-muted);">Soluciones diseñadas para la preservación de su legado patrimonial.</p>
+                <p style="color: var(--text-muted);">Soluciones diseñadas para la preservación de su legado patrimonial.
+                </p>
             </div>
         </section>
 
@@ -38,27 +46,37 @@
                 <div class="grid">
                     <!-- Jubilación -->
                     <div class="card reveal reveal-left" style="text-align: left;">
-                        <i class="fas fa-umbrella"></i>
+                        <img src="/assets/images/retirement.png" alt="Jubilación Internacional" class="card-image">
                         <h3>Planes de Jubilación Internacional</h3>
-                        <p style="margin-bottom: 1rem; color: var(--gold-metallic); font-weight: 600;">Seguridad en moneda fuerte.</p>
-                        <p style="margin-bottom: 1.5rem;">Nuestros planes de retiro están estructurados en jurisdicciones internacionales de alta calificación crediticia. Permiten la acumulación de capital en dólares, garantizando una renta vitalicia o un fondo global protegido de la devaluación y la inestabilidad política local.</p>
+                        <p style="margin-bottom: 1rem; color: var(--gold-metallic); font-weight: 600;">Seguridad en
+                            moneda fuerte.</p>
+                        <p style="margin-bottom: 1.5rem;">Nuestros planes de retiro están estructurados en
+                            jurisdicciones internacionales de alta calificación crediticia. Permiten la acumulación de
+                            capital en dólares, garantizando una renta vitalicia o un fondo global protegido de la
+                            devaluación y la inestabilidad política local.</p>
                         <ul class="feature-list">
                             <li><i class="fas fa-check"></i> <span>Diversificación geográfica inmediata.</span></li>
                             <li><i class="fas fa-check"></i> <span>Acceso a carteras de inversión globales.</span></li>
-                            <li><i class="fas fa-check"></i> <span>Beneficios fiscales en estructuras internacionales.</span></li>
+                            <li><i class="fas fa-check"></i> <span>Beneficios fiscales en estructuras
+                                    internacionales.</span></li>
                         </ul>
                         <a href="/contacto.html" class="btn btn-outline">Consultar Estrategia</a>
                     </div>
 
                     <!-- Universidad -->
                     <div class="card reveal reveal-up" style="text-align: left;">
-                        <i class="fas fa-graduation-cap"></i>
+                        <img src="/assets/images/university.png" alt="Fondos Universitarios" class="card-image">
                         <h3>Fondos Universitarios Estructurados</h3>
-                        <p style="margin-bottom: 1rem; color: var(--gold-metallic); font-weight: 600;">El futuro de sus hijos, garantizado.</p>
-                        <p style="margin-bottom: 1.5rem;">Diseñamos vehículos de inversión específicos para cubrir los costos crecientes de la educación superior en las mejores universidades del mundo. Mediante aportes programados, creamos un fondo robusto que se beneficia del interés compuesto y la estabilidad del dólar.</p>
+                        <p style="margin-bottom: 1rem; color: var(--gold-metallic); font-weight: 600;">El futuro de sus
+                            hijos, garantizado.</p>
+                        <p style="margin-bottom: 1.5rem;">Diseñamos vehículos de inversión específicos para cubrir los
+                            costos crecientes de la educación superior en las mejores universidades del mundo. Mediante
+                            aportes programados, creamos un fondo robusto que se beneficia del interés compuesto y la
+                            estabilidad del dólar.</p>
                         <ul class="feature-list">
                             <li><i class="fas fa-check"></i> <span>Cobertura total de costos académicos.</span></li>
-                            <li><i class="fas fa-check"></i> <span>Planificación según la edad de los beneficiarios.</span></li>
+                            <li><i class="fas fa-check"></i> <span>Planificación según la edad de los
+                                    beneficiarios.</span></li>
                             <li><i class="fas fa-check"></i> <span>Transferencia patrimonial simplificada.</span></li>
                         </ul>
                         <a href="/contacto.html" class="btn btn-outline">Planificar Educación</a>
@@ -66,13 +84,18 @@
 
                     <!-- Seguros -->
                     <div class="card reveal reveal-right" style="text-align: left;">
-                        <i class="fas fa-hospital-user"></i>
+                        <img src="/assets/images/health.png" alt="Seguros Médicos VIP" class="card-image">
                         <h3>Seguros Médicos VIP & Internacional</h3>
-                        <p style="margin-bottom: 1rem; color: var(--gold-metallic); font-weight: 600;">Salud sin fronteras.</p>
-                        <p style="margin-bottom: 1.5rem;">Brindamos acceso a la medicina de élite global. Nuestros planes ofrecen cobertura integral en los hospitales más prestigiosos de EE.UU., Europa y Latinoamérica, asegurando que usted y su familia reciban el mejor tratamiento disponible sin preocupaciones financieras.</p>
+                        <p style="margin-bottom: 1rem; color: var(--gold-metallic); font-weight: 600;">Salud sin
+                            fronteras.</p>
+                        <p style="margin-bottom: 1.5rem;">Brindamos acceso a la medicina de élite global. Nuestros
+                            planes ofrecen cobertura integral en los hospitales más prestigiosos de EE.UU., Europa y
+                            Latinoamérica, asegurando que usted y su familia reciban el mejor tratamiento disponible sin
+                            preocupaciones financieras.</p>
                         <ul class="feature-list">
                             <li><i class="fas fa-check"></i> <span>Red global de proveedores médicos.</span></li>
-                            <li><i class="fas fa-check"></i> <span>Segunda opinión médica internacional incluida.</span></li>
+                            <li><i class="fas fa-check"></i> <span>Segunda opinión médica internacional incluida.</span>
+                            </li>
                             <li><i class="fas fa-check"></i> <span>Atención personalizada 24/7.</span></li>
                         </ul>
                         <a href="/contacto.html" class="btn btn-outline">Ver Coberturas</a>
@@ -109,7 +132,7 @@
                     <ul style="margin-top: 1rem; color: var(--text-muted);">
                         <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.5rem;">
                             <i class="fas fa-map-marker-alt" style="color: var(--gold-metallic); margin-top: 5px;"></i>
-                            <span>Edificio Financial Hub, Piso 12<br>Quito - Ecuador</span>
+                            <span>Edificio Financial Hub<br>Quito - Ecuador</span>
                         </li>
                     </ul>
                 </div>
@@ -139,4 +162,5 @@
 
     <script type="module" src="/main.js"></script>
 </body>
+
 </html>
