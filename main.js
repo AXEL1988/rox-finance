@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Contact form handling (Simulation)
+    // Contact form handling (Simulation with email destination)
     const contactForm = document.getElementById('rox-contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -20,13 +20,33 @@ document.addEventListener('DOMContentLoaded', () => {
             const btn = contactForm.querySelector('button');
             const originalText = btn.innerText;
             
-            btn.innerText = 'Enviando...';
+            // Collect data (for simulation)
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+
+            btn.innerText = 'Enviando a info@roxfinance.com...';
             btn.disabled = true;
 
+            // Simulate API Call
             setTimeout(() => {
-                btn.innerText = '¡Enviado!';
+                btn.innerText = '¡Solicitud Recibida!';
                 btn.style.backgroundColor = '#d4af37';
                 btn.style.color = '#0a192f';
+                
+                console.log('Formulario enviado a info@roxfinance.com:', formData);
+                
+                // Show success alert
+                const successMsg = document.createElement('p');
+                successMsg.innerText = 'Gracias ' + formData.name + '. Su mensaje ha sido enviado exitosamente a nuestra oficina central.';
+                successMsg.style.color = '#d4af37';
+                successMsg.style.marginTop = '1rem';
+                successMsg.style.fontSize = '0.9rem';
+                contactForm.appendChild(successMsg);
+
                 contactForm.reset();
 
                 setTimeout(() => {
@@ -34,29 +54,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.style.backgroundColor = 'var(--accent-green)';
                     btn.style.color = 'var(--primary-blue)';
                     btn.disabled = false;
-                }, 3000);
+                    successMsg.remove();
+                }, 5000);
             }, 1500);
         });
     }
 
-    // Scroll reveal implementation (Simple)
+    // Advanced Scroll Reveal
     const observerOptions = {
-        threshold: 0.1
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('active');
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease-out';
-        observer.observe(el);
+    // Apply reveal to elements
+    document.querySelectorAll('.reveal').forEach(el => {
+        revealObserver.observe(el);
     });
 });
