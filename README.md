@@ -1,38 +1,35 @@
-# rox-finance
+# ROX Finance | Wealth & Protection
 
-MANUAL DE MARCA
-ROX SEGUROS E INVERSIONES
-1. Identidad de Marca
-ROX Seguros e Inversiones es una firma especializada en planificación patrimonial, protección financiera y estructuración de inversiones internacionales en dólares.
-2. Colores Corporativos
-• Azul profundo degradado (fondo principal)
-• Dorado metálico (títulos y logotipo)
-• Blanco (textos secundarios)
-• Verde elegante (botones de acción)
-3. Tipografía
-Titulares: Sans serif moderna y fuerte (ej. Montserrat o Poppins).
-Texto secundario: Limpia, ligera y elegante.
-Evitar fuentes manuscritas o efectos exagerados.
-4. Estructura Obligatoria de Piezas Gráficas
-1. Logo visible en parte superior o inferior.
-2. Título fuerte y claro.
-3. Subtítulo de autoridad.
-4. Máximo 3 beneficios.
-5. Llamado a la acción directo.
- 
-5. Línea de Comunicación
-Tono profesional, estratégico e internacional.
-Evitar lenguaje alarmista o exagerado.
-6. Líneas de Producto
-• Planes de Jubilación Internacional en dólares.
-• Fondos Universitarios estructurados.
-• Seguros Médicos con cobertura nacional e internacional.
-ROX Seguros e Inversiones – Planificación Patrimonial Estratégica
+Sitio web de ROX Finance, firma de planificación patrimonial.
+Lineamientos de origen: carpeta `lineamientos/` (briefs creativos y manual de marca).
 
+**Concepto rector:** Tu futuro no se espera. Se construye.
+**Frase de marca:** Tu patrimonio necesita una estrategia, no solo productos.
+**Regla de oro:** primero la estrategia, después los productos.
 
-Paginas de referencia:
+## Marca
 
-https://gabrokersint.com/
-https://www.fideval.com/#
-https://www.galiciaseguros.com.ar/
+| Color | Hex | Uso |
+|---|---|---|
+| Azul petróleo | `#0B4F5A` | Principal |
+| Azul profundo | `#0D2630` | Secundario / secciones oscuras |
+| Teal claro | `#62B7B0` | Acento |
+| Marfil | `#F5F3EE` | Fondo |
+| Gris | `#6B7C85` | Textos / íconos |
 
+Tipografía: Playfair Display (títulos) y Montserrat (textos).
+
+## Páginas
+
+`index` (narrativa completa) · `planificacion` · `proteccion` · `inversiones` · `vipli` · `jubilacion` · `nosotros` · `contacto`
+
+## Desarrollo
+
+```bash
+npm install
+npm run dev      # servidor local
+npm run build    # genera dist/
+npm run deploy   # publica en GitHub Pages
+```
+
+El número de WhatsApp al que llegan los formularios está en `main.js` (`WHATSAPP_NUMBER`).
