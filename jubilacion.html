@@ -10,8 +10,8 @@
     <link rel="icon" type="image/png" href="assets/images/rox-favicon.png">
     <link rel="apple-touch-icon" href="assets/images/rox-apple-touch.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <script type="module" crossorigin src="/rox-finance/assets/main-bPrByxeC.js"></script>
-  <link rel="stylesheet" crossorigin href="/rox-finance/assets/main-H_Em4PyH.css">
+  <script type="module" crossorigin src="/rox-finance/assets/main-QGKYSniX.js"></script>
+  <link rel="stylesheet" crossorigin href="/rox-finance/assets/main-CmAtWNRH.css">
 </head>
 
 <body>
@@ -26,7 +26,6 @@
                     <li><a href="planificacion.html">Planificación Patrimonial</a></li>
                     <li><a href="proteccion.html">Protección</a></li>
                     <li><a href="inversiones.html">Inversiones</a></li>
-                    <li><a href="vipli.html">VIPLI®</a></li>
                     <li><a href="jubilacion.html" aria-current="page">Jubilación</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
                     <li class="nav-cta"><a href="contacto.html" class="btn">Agenda una consulta</a></li>
@@ -40,7 +39,7 @@
     <main>
         <section class="page-hero">
             <div class="container reveal">
-                <span class="eyebrow">Función 04 · Transformar</span>
+                <span class="eyebrow">Transformar</span>
                 <h1>Tu jubilación no debería empezar <em>el día que dejas de trabajar.</em></h1>
                 <p class="lead">La jubilación no debería empezar cuando te jubiles. Debería empezar a planificarse mucho antes.</p>
             </div>
@@ -104,6 +103,75 @@
             </div>
         </section>
 
+        <section class="section" id="calculadora">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Calculadora de crecimiento</span>
+                    <h2>Mira cómo el tiempo <em>hace crecer tu capital.</em></h2>
+                    <p class="lead">Una simulación sencilla del interés compuesto: cuánto podría acumular tu patrimonio con aportes constantes a lo largo de los años.</p>
+                </div>
+                <div class="calc reveal" data-calc>
+                    <form class="form calc-form" novalidate>
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="calc-capital">Capital inicial (USD)</label>
+                                <input id="calc-capital" name="capital" type="number" inputmode="decimal" min="100" max="100000000" step="100" value="10000">
+                            </div>
+                            <div class="form-field">
+                                <label for="calc-aporte">Aporte mensual (USD)</label>
+                                <input id="calc-aporte" name="aporte" type="number" inputmode="decimal" min="0" max="1000000" step="50" value="300">
+                            </div>
+                            <div class="form-field">
+                                <label for="calc-anios">Años de crecimiento</label>
+                                <input id="calc-anios" name="anios" type="number" inputmode="numeric" min="1" max="60" step="1" value="20">
+                            </div>
+                            <div class="form-field">
+                                <label for="calc-tasa">Rendimiento anual estimado (%)</label>
+                                <input id="calc-tasa" name="tasa" type="number" inputmode="decimal" min="0" max="20" step="0.1" value="6">
+                            </div>
+                            <div class="form-field full">
+                                <label for="calc-frecuencia">Frecuencia de capitalización</label>
+                                <select id="calc-frecuencia" name="frecuencia">
+                                    <option value="12" selected>Mensual</option>
+                                    <option value="4">Trimestral</option>
+                                    <option value="2">Semestral</option>
+                                    <option value="1">Anual</option>
+                                </select>
+                            </div>
+                        </div>
+                        <p class="calc-error" role="alert" hidden></p>
+                        <p class="form-note">Los aportes se realizan al final de cada mes.</p>
+                    </form>
+
+                    <div class="calc-result" aria-live="polite">
+                        <span class="calc-result-label">Valor estimado al final del plazo</span>
+                        <p class="calc-total" data-out="total">$0</p>
+                        <dl class="calc-breakdown">
+                            <div><dt><i class="swatch swatch--contrib"></i>Total aportado</dt><dd data-out="contrib">$0</dd></div>
+                            <div><dt><i class="swatch swatch--interest"></i>Intereses generados</dt><dd data-out="interest">$0</dd></div>
+                        </dl>
+                        <figure class="calc-chart">
+                            <svg data-chart role="img" aria-label="Gráfico de barras apiladas con la evolución anual del capital aportado y de los intereses generados"></svg>
+                            <figcaption><span>Hoy</span><span data-out="years-label">20 años</span></figcaption>
+                        </figure>
+                        <details class="calc-table">
+                            <summary>Ver detalle año por año</summary>
+                            <div class="calc-table-wrap">
+                                <table>
+                                    <thead><tr><th scope="col">Año</th><th scope="col">Aportado</th><th scope="col">Intereses</th><th scope="col">Balance</th></tr></thead>
+                                    <tbody data-table></tbody>
+                                </table>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <p class="disclaimer">Simulación referencial con una tasa de rendimiento hipotética y constante. No representa una garantía ni una proyección de rendimiento de ningún producto o estrategia de ROX Finance. No considera inflación, comisiones, impuestos ni variaciones del mercado. Los resultados reales pueden ser distintos.</p>
+                <div class="btn-group">
+                    <a href="contacto.html" class="btn">Diseñar mi estrategia de retiro</a>
+                </div>
+            </div>
+        </section>
+
         <section class="section section--deep">
             <div class="container narrow text-center reveal">
                 <span class="eyebrow center">Hablemos sobre tu patrimonio</span>
@@ -126,7 +194,7 @@
                     <div class="social-links">
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/593991234567" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/593985467451" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
@@ -150,20 +218,21 @@
                 <div>
                     <h4>Contacto</h4>
                     <ul class="footer-contact">
-                        <li><i class="fas fa-location-dot"></i><span>Quito, Ecuador</span></li>
-                        <li><i class="fas fa-envelope"></i><a href="mailto:hola@roxfinance.com">hola@roxfinance.com</a></li>
-                        <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/593991234567" target="_blank" rel="noopener">+593 99 123 4567</a></li>
+                        <li><i class="fas fa-location-dot"></i><span>Edif. Plus 1 · Jorge Drom y Arízaga · Of. 702<br>Quito, Ecuador</span></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:info@roxfinance.com">info@roxfinance.com</a></li>
+                        <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/593985467451" target="_blank" rel="noopener">+593 98 546 7451</a></li>
+                        <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/593993663100" target="_blank" rel="noopener">+593 99 366 3100</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-legal">
                 <p>La información de este sitio es referencial y no constituye una oferta, garantía ni recomendación de inversión. Toda inversión conlleva riesgos y los resultados pasados no garantizan resultados futuros. Cada estrategia se define tras un diagnóstico personalizado.</p>
-                <p>&copy; <span data-year>2026</span> ROX Finance | Wealth &amp; Protection</p>
+                <p>&copy; <span data-year>2026</span> ROX Finance | Wealth &amp; Protection · <a href="privacidad.html">Política de privacidad</a></p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/593991234567" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <a href="https://wa.me/593985467451" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
