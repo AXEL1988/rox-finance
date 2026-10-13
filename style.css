@@ -93,7 +93,7 @@ h1 em,
 h2 em,
 h3 em {
   font-style: italic;
-  color: var(--petrol);
+  color: inherit;
 }
 
 p + p {
@@ -334,14 +334,14 @@ p + p {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.4rem;
+  gap: 1.2rem;
 }
 
 .nav-links a {
   position: relative;
-  font-size: 0.68rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--deep);
   white-space: nowrap;
@@ -472,7 +472,7 @@ main {
 .section--petrol h2 em,
 .section--deep h1 em,
 .section--petrol h1 em {
-  color: var(--teal);
+  color: inherit;
 }
 
 .section--deep .eyebrow,
@@ -799,6 +799,23 @@ main {
   stroke: var(--petrol);
 }
 
+.function-photo {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 1.6rem;
+  transition: transform 0.8s var(--ease);
+}
+
+.function--photo {
+  overflow: hidden;
+}
+
+.function--photo:hover .function-photo {
+  transform: scale(1.04);
+}
+
 .function h3 {
   font-family: var(--sans);
   font-size: 0.95rem;
@@ -964,6 +981,49 @@ main {
   height: 52%;
 }
 
+/* Invertir: gráfico de crecimiento animado */
+.dm-growth svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.gbar {
+  fill: var(--teal);
+  opacity: 0.35;
+  transform-box: fill-box;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 0.7s var(--ease);
+  transition-delay: calc(1.4s + var(--i) * 0.22s);
+}
+
+.gline {
+  fill: none;
+  stroke: var(--petrol);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.4s var(--ease) 1.6s;
+}
+
+.gdot {
+  fill: var(--petrol);
+  opacity: 0;
+  transition: opacity 0.4s ease 2.9s;
+}
+
+.dollar-map.active .gbar { transform: scaleY(1); }
+.dollar-map.active .gline { stroke-dashoffset: 0; }
+.dollar-map.active .gdot { opacity: 1; animation: gpulse 2s ease-in-out 3.3s infinite; }
+
+@keyframes gpulse {
+  50% { opacity: 0.4; }
+}
+
 .dm-box h3 {
   margin-top: 1.3rem;
   font-family: var(--sans);
@@ -1094,6 +1154,42 @@ main {
   margin-bottom: 1.4rem;
 }
 
+.card--photo {
+  padding: 0;
+  overflow: hidden;
+}
+
+.card--photo > :not(.card-photo) {
+  margin-left: 2.2rem;
+  margin-right: 2.2rem;
+}
+
+.card--photo .card-kicker {
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.card--photo p {
+  margin-bottom: 2.2rem;
+}
+
+.card-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.card--photo:hover .card-photo {
+  transform: scale(1.05);
+}
+
+.card--photo {
+  isolation: isolate;
+}
+
 .section--deep .card,
 .section--petrol .card {
   background: rgba(245, 243, 238, 0.04);
@@ -1190,6 +1286,20 @@ main {
   width: 46%;
   height: auto;
   mix-blend-mode: lighten;
+}
+
+.portrait--photo {
+  background: var(--cream-2);
+}
+
+.portrait--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  mix-blend-mode: normal;
+  transform: scale(1.55);
+  transform-origin: 46% 30%;
 }
 
 .portrait::after {
@@ -1860,7 +1970,7 @@ main {
   .nav-links a {
     display: block;
     padding: 1.1rem 0;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   .nav-links a::after {
@@ -2130,4 +2240,308 @@ main {
   .footer-legal {
     flex-direction: column;
   }
+}
+
+/* --------------------------------------------------------------------------
+   Calculadora de crecimiento (Jubilación)
+   -------------------------------------------------------------------------- */
+
+.calc {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: stretch;
+}
+
+.calc-form {
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--teal);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.calc-form input,
+.calc-form select {
+  font-size: 1.05rem;
+}
+
+.calc-form input:focus-visible,
+.calc-form select:focus-visible {
+  border-color: var(--teal-ink);
+  box-shadow: 0 2px 0 var(--teal-ink);
+}
+
+.calc-error {
+  margin-top: 1.2rem;
+  padding: 0.8rem 1rem;
+  border-left: 2px solid #A0402F;
+  background: rgba(160, 64, 47, 0.08);
+  font-size: 0.88rem;
+  color: var(--deep);
+}
+
+.calc-result {
+  background: var(--petrol);
+  color: rgba(245, 243, 238, 0.82);
+  padding: clamp(2rem, 4vw, 3rem);
+}
+
+.calc-result-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.calc-total {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 1.1;
+  color: var(--cream);
+  margin: 0.6rem 0 1.6rem;
+  overflow-wrap: anywhere;
+}
+
+.calc-breakdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+}
+
+.calc-breakdown dt {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 238, 0.7);
+}
+
+.calc-breakdown dd {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin-top: 0.3rem;
+  overflow-wrap: anywhere;
+}
+
+.swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.swatch--contrib { background: rgba(245, 243, 238, 0.45); }
+.swatch--interest { background: var(--teal); }
+
+.calc-chart {
+  margin-top: 1.8rem;
+}
+
+.calc-chart svg {
+  display: block;
+  width: 100%;
+  height: 220px;
+}
+
+.calc-chart figcaption {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 238, 0.6);
+}
+
+.calc-bar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: calc-grow 0.7s var(--ease) both;
+  animation-delay: calc(var(--i) * 25ms + var(--layer) * 120ms);
+}
+
+.bar-contrib { fill: rgba(245, 243, 238, 0.45); }
+.bar-interest { fill: var(--teal); }
+
+@keyframes calc-grow {
+  from { transform: scaleY(0); }
+}
+
+.calc-table {
+  margin-top: 1.4rem;
+  font-size: 0.88rem;
+}
+
+.calc-table summary {
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.calc-table summary:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
+}
+
+.calc-table-wrap {
+  max-height: 260px;
+  overflow: auto;
+  margin-top: 1rem;
+}
+
+.calc-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.calc-table th,
+.calc-table td {
+  text-align: right;
+  padding: 0.55rem 0.5rem;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.calc-table th:first-child,
+.calc-table td:first-child {
+  text-align: left;
+}
+
+.calc-table th {
+  position: sticky;
+  top: 0;
+  background: var(--petrol);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+#calculadora .disclaimer {
+  margin-top: 2rem;
+}
+
+#calculadora .btn-group {
+  margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .calc {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .calc-breakdown {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-form .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-form .form-field {
+  justify-content: flex-end;
+}
+
+/* --------------------------------------------------------------------------
+   Páginas legales y consentimiento
+   -------------------------------------------------------------------------- */
+
+.legal h2 {
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  margin: 2.6rem 0 0.9rem;
+}
+
+.legal p,
+.legal li {
+  color: var(--text-soft);
+  line-height: 1.75;
+}
+
+.legal p + p {
+  margin-top: 0.9rem;
+}
+
+.legal ul {
+  margin: 0.8rem 0 0.8rem 1.2rem;
+  list-style: disc;
+}
+
+.legal a {
+  color: var(--petrol);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-date {
+  font-size: 0.85rem;
+}
+
+.draft-note {
+  padding: 1rem 1.2rem;
+  border-left: 3px solid #B7791F;
+  background: rgba(183, 121, 31, 0.1);
+  font-size: 0.9rem;
+  color: var(--deep);
+  margin-bottom: 1.5rem;
+}
+
+mark.placeholder {
+  background: rgba(183, 121, 31, 0.22);
+  color: var(--deep);
+  padding: 0 0.25em;
+}
+
+.footer-legal a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-legal a:hover {
+  color: var(--teal);
+}
+
+.form-consent .check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.55;
+  color: var(--text-soft);
+  cursor: pointer;
+}
+
+.form .form-consent input[type='checkbox'] {
+  -webkit-appearance: checkbox;
+  appearance: auto;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  padding: 0;
+  accent-color: var(--petrol);
+}
+
+.form-consent .check a {
+  color: var(--petrol);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
