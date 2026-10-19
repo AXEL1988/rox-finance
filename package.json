@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "VITE_BASE=/rox-finance/ vite build",
+    "deploy": "gh-pages -d dist",
+    "deploy:prod": "./deploy.sh"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
